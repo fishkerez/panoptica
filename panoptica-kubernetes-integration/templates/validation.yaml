@@ -1,0 +1,3 @@
+{{- if not .Values.global.panopticaIntegration.kspm.enabled }}
+{{- fail "KSPM must be enabled!" }}
+{{- end }}

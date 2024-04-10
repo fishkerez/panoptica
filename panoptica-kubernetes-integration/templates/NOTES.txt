@@ -1,0 +1,2 @@
+Thank you for installing {{ .Chart.Name }}
+Your cluster is now connected to Panoptica.

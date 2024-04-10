@@ -1,0 +1,42 @@
+apiVersion: v2
+name: panoptica-kubernetes-integration
+description: Kubernetes integration with Panoptica. It will install the required components according the features chosen in the values.
+
+# A chart can be either an 'application' or a 'library' chart.
+#
+# Application charts are a collection of templates that can be packaged into versioned archives
+# to be deployed.
+#
+# Library charts provide useful utilities or functions for the chart developer. They're included as
+# a dependency of application charts to inject those utilities and functions into the rendering
+# pipeline. Library charts do not define any templates and therefore cannot be deployed.
+type: application
+
+# This is the chart version. This version number should be incremented each time you make changes
+# to the chart and its templates, including the app version.
+# Versions are expected to follow Semantic Versioning (https://semver.org/)
+version: 1.2.3-beta5
+
+dependencies:
+  - name: kubernetes-integration-deployment-controller
+    version: 0.5.0-beta3
+    repository: oci://public.ecr.aws/ciscoeti/panoptica/charts
+    alias: kubernetes-integration-deployment-controller
+  # KSPM controller
+  - name: panoptica
+    version: 1.221.0
+    repository: oci://us-docker.pkg.dev/eticloud/panoptica-registry/panoptica
+    alias: k8sec-controller
+    condition: global.panopticaIntegration.kspm.enabled
+  # APISec controllers
+  - name: apisec-controllers
+    version: 0.3.8
+    repository: oci://us-docker.pkg.dev/eticloud/panoptica-public-registry/apisec
+    alias: apisec-controllers
+    condition: global.panopticaIntegration.apiSecurity.enabled
+  # CDR controller
+  - name: panoptica-cdr
+    version: 1.0.22
+    repository: oci://registry.outshift.com/panoptica/cdr/helm-charts
+    alias: cdr-controller
+    condition: global.panopticaIntegration.cdr.enabled
