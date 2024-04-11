@@ -15,11 +15,11 @@ type: application
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 1.2.3-beta5
+version: 1.2.3-beta7
 
 dependencies:
   - name: kubernetes-integration-deployment-controller
-    version: 0.5.0-beta3
+    version: 0.5.0-beta4
     repository: oci://public.ecr.aws/ciscoeti/panoptica/charts
     alias: kubernetes-integration-deployment-controller
   # KSPM controller
