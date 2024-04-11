@@ -35,7 +35,7 @@ global:
   extraLabels: {}
   deploymentHooks:
     # -- Indicates whether deployment hooks should be used to report deployment status (e.g ArgoCD sync hooks).
-    enabled: false
+    enabled: true
     # -- Annotations to add to the deployment hooks
     annotations: {}
   panopticaCDR:
