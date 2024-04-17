@@ -14,7 +14,7 @@ global:
   # @ignored
   isManagedByHelm: true
   # -- Panoptica SaaS URL. Used to override default URL for local testing.
-  mgmtHostname: ""
+  mgmtHostname: "production.demo.panoptica.app"
   # -- Indicates whether K8s CIS benchmark is enabled.
   k8sCisBenchmarkEnabled: true
   # -- Indicates whether installed in an OpenShift environment.
@@ -33,11 +33,7 @@ global:
   affinity: {}
   # -- Allow labelling resources with custom key/value pairs.
   extraLabels: {}
-  deploymentHooks:
-    # -- Indicates whether deployment hooks should be used to report deployment status (e.g ArgoCD sync hooks).
-    enabled: true
-    # -- Annotations to add to the deployment hooks
-    annotations: {}
+
   panopticaCDR:
     # -- Cluster ID used by CDR.
     clusterID: ""
@@ -46,31 +42,31 @@ global:
 
   panopticaIntegration:
     # -- [Required] Integration ID.
-    id: ""
+    id: "23fd3ac2-8067-44e1-8463-979e79aec010"
     kspm:
       # -- Indicates whether KSPM is enabled. Always true; this value cannot be changed.
       enabled: true
     apiSecurity:
       # -- Indicates whether API Security is enabled.
-      enabled: true
+      enabled: false
     cdr:
       # -- Indicates whether Realtime CDR is enabled.
       enabled: false
 
 # Kubernetes integration deployment controller values
 kubernetes-integration-deployment-controller:
-# https://github.com/cisco-eti/panoptica-deployment-controller/blob/main/charts/kubernetes-integration-deployment-controller/values.yaml
+  # https://github.com/cisco-eti/panoptica-deployment-controller/blob/main/charts/kubernetes-integration-deployment-controller/values.yaml
   image:
     # -- Overrides the controller image registry
     registry: "registry.outshift.com"
 
   api:
     # -- [Required] Panoptica SaaS URL.
-    url: ""
+    url: "deploymentmanager.staging.panoptica.app"
 
   secret:
     # -- Token used by the deployment controller to communicate with the SaaS.
-    token: ""
+    token: "eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL2F1dGgua2lzLnBhbm9wdGljYS5pbyIsInN1YiI6ImFkYzoyM2ZkM2FjMi04MDY3LTQ0ZTEtODQ2My05NzllNzlhZWMwMTAiLCJhdWQiOlsiL2ludGVncmF0aW9ucy8yM2ZkM2FjMi04MDY3LTQ0ZTEtODQ2My05NzllNzlhZWMwMTAiLCIvcmVsZWFzZXMiXSwic2NwIjpbImlhbS5nbG9iYWwucGFub3B0aWNhLms4c2NsdXN0ZXJzZXJ2aWNlLmludGVncmF0aW9ucy5kZXBsb3ltZW50Om1hbmFnZSIsImlhbS5nbG9iYWwucGFub3B0aWNhLms4c2NsdXN0ZXJzZXJ2aWNlLmludGVncmF0aW9uczpyZWFkIiwiaWFtLmdsb2JhbC5wYW5vcHRpY2EuazhzY2x1c3RlcnNlcnZpY2UuaW50ZWdyYXRpb25zOm1hbmFnZSIsImlhbS5nbG9iYWwucGFub3B0aWNhLms4c2NsdXN0ZXJzZXJ2aWNlLnJlbGVhc2VzOnJlYWQiXSwidGVuYW50IjoiYjQ5MjdkZWEtODdmZS00YTNiLTk1ZTktNGU1MjJlNTk0NGFjIn0.u-u6K87j5tBc60xV1LRNRwB2rD2QDxOULCrPXKF8rsosVayJkvctkEmnGKNfMdtnheG2bJFZIE2iIS-n343Iwg"
 
   syncIntegrationJob:
     image:
@@ -78,7 +74,7 @@ kubernetes-integration-deployment-controller:
       registry: "registry.outshift.com"
     api:
       # -- [Required] Panoptica SaaS URL.
-      url: ""
+      url: "k8s-integration.staging.panoptica.app"
 
 # Panoptica controller values
 k8sec-controller:
@@ -211,4 +207,4 @@ cdr-controller: {}
   # sysflowagent-medium: {}
 
   ## https://github.com/cisco-eti/dragonfly-helm-charts/blob/3392fc8e4e5d5af28bb56aa21f0d4626cc8e9dd1/charts/dragonfly-data-collector/values.yaml#L1104C1-L1104C20
-  # sysflowagent-harsh: {}
+# sysflowagent-harsh: {}
