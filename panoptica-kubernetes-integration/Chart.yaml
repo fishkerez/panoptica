@@ -25,4 +25,4 @@ appVersion: "1.0" # Currently not used; app version is set by `sre-python-hellow
 dependencies:
 - name: panoptica-kubernetes-integration
   repository: oci://public.ecr.aws/ciscoeti/panoptica/charts
-  version: 1.2.4
+  version: 1.3.3
