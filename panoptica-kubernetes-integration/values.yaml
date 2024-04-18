@@ -8,6 +8,10 @@ global:
     cdr:
       enabled: false
   mgmtHostname: "production.demo.panoptica.app"
+  deploymentHooks:
+    # When enabled, deployment hooks will be used to report deploymet status
+    enabled: true
+
 
 panoptica-kubernetes-integration:
   kubernetes-integration-deployment-controller:
