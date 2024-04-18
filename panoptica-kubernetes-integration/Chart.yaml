@@ -1,6 +1,6 @@
 apiVersion: v2
-name: panoptica-kubernetes-integration
-description: Kubernetes integration with Panoptica. It will install the required components according the features chosen in the values.
+name: panoptica
+description: Kubernetes integration service deployment
 
 # A chart can be either an 'application' or a 'library' chart.
 #
@@ -15,28 +15,14 @@ type: application
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 1.3.2
+version: 0.1.0
+
+# This is the version number of the application being deployed. This version number should be
+# incremented each time you make changes to the application. Versions are not expected to
+# follow Semantic Versioning. They should reflect the version the application is using.
+appVersion: "1.0" # Currently not used; app version is set by `sre-python-helloworld-app.deployments.tagversion` in values.yaml
 
 dependencies:
-  - name: kubernetes-integration-deployment-controller
-    version: 0.6.0
-    repository: oci://public.ecr.aws/ciscoeti/panoptica/charts
-    alias: kubernetes-integration-deployment-controller
-  # KSPM controller
-  - name: panoptica
-    version: 1.221.0
-    repository: oci://us-docker.pkg.dev/eticloud/panoptica-registry/panoptica
-    alias: k8sec-controller
-    condition: global.panopticaIntegration.kspm.enabled
-  # APISec controllers
-  - name: apisec-controllers
-    version: 0.3.10
-    repository: oci://us-docker.pkg.dev/eticloud/panoptica-public-registry/apisec
-    alias: apisec-controllers
-    condition: global.panopticaIntegration.apiSecurity.enabled
-  # CDR controller
-  - name: panoptica-cdr
-    version: 1.0.31
-    repository: oci://registry.outshift.com/panoptica/cdr/helm-charts
-    alias: cdr-controller
-    condition: global.panopticaIntegration.cdr.enabled
+- name: panoptica-kubernetes-integration
+  repository: oci://public.ecr.aws/ciscoeti/panoptica/charts
+  version: 1.2.4

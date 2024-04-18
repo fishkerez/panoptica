@@ -1,210 +1,27 @@
-# Default values for panoptica-kubernetes-integration.
-# This is a YAML-formatted file.
-# Declare variables to be passed into your templates.
-
 global:
-  # -- Shared secret used by API Security.
-  sharedSecret: ""
-  # -- Access key used by API Security.
-  accessKey: ""
-  # -- Override product name. Defaults to chart name.
-  productNameOverride: "panoptica"
-  # -- Override detected cluster version.
-  kubeVersionOverride: ""
-  # @ignored
-  isManagedByHelm: true
-  # -- Panoptica SaaS URL. Used to override default URL for local testing.
-  mgmtHostname: "production.demo.panoptica.app"
-  # -- Indicates whether K8s CIS benchmark is enabled.
-  k8sCisBenchmarkEnabled: true
-  # -- Indicates whether installed in an OpenShift environment.
-  isOpenShift: false
-  # -- Proxy address to use for HTTP request if needed.
-  httpProxy: ""
-  # -- Proxy address to use for HTTPs request if needed. In most cases, this is the same as `httpProxy`.
-  httpsProxy: ""
-  # -- Registry for the Panoptica images. If replaced with a local registry need to make sure all images are pulled into the local registry.
-  registry: "registry.outshift.com"
-  # -- Configures telemetry frequency (in seconds) for reporting duration.
-  sendTelemetriesIntervalSec: 30
-  # -- Configures tolerations for scheduling Panoptica pods.
-  tolerations: []
-  # -- Configures Node affinity for Panoptica pods.
-  affinity: {}
-  # -- Allow labelling resources with custom key/value pairs.
-  extraLabels: {}
-
-  panopticaCDR:
-    # -- Cluster ID used by CDR.
-    clusterID: ""
-    # -- Token used to register a new CDR instance. The token can be used once.
-    initialToken: ""
-
   panopticaIntegration:
-    # -- [Required] Integration ID.
-    id: "23fd3ac2-8067-44e1-8463-979e79aec010"
+    id: 6837ce65-7b62-4055-9370-def889d89f5a
     kspm:
-      # -- Indicates whether KSPM is enabled. Always true; this value cannot be changed.
       enabled: true
     apiSecurity:
-      # -- Indicates whether API Security is enabled.
       enabled: false
     cdr:
-      # -- Indicates whether Realtime CDR is enabled.
       enabled: false
+  mgmtHostname: "production.demo.panoptica.app"
 
-# Kubernetes integration deployment controller values
-kubernetes-integration-deployment-controller:
-  # https://github.com/cisco-eti/panoptica-deployment-controller/blob/main/charts/kubernetes-integration-deployment-controller/values.yaml
-  image:
-    # -- Overrides the controller image registry
-    registry: "registry.outshift.com"
-
-  api:
-    # -- [Required] Panoptica SaaS URL.
-    url: "deploymentmanager.staging.panoptica.app"
-
-  secret:
-    # -- Token used by the deployment controller to communicate with the SaaS.
-    token: "eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL2F1dGgua2lzLnBhbm9wdGljYS5pbyIsInN1YiI6ImFkYzoyM2ZkM2FjMi04MDY3LTQ0ZTEtODQ2My05NzllNzlhZWMwMTAiLCJhdWQiOlsiL2ludGVncmF0aW9ucy8yM2ZkM2FjMi04MDY3LTQ0ZTEtODQ2My05NzllNzlhZWMwMTAiLCIvcmVsZWFzZXMiXSwic2NwIjpbImlhbS5nbG9iYWwucGFub3B0aWNhLms4c2NsdXN0ZXJzZXJ2aWNlLmludGVncmF0aW9ucy5kZXBsb3ltZW50Om1hbmFnZSIsImlhbS5nbG9iYWwucGFub3B0aWNhLms4c2NsdXN0ZXJzZXJ2aWNlLmludGVncmF0aW9uczpyZWFkIiwiaWFtLmdsb2JhbC5wYW5vcHRpY2EuazhzY2x1c3RlcnNlcnZpY2UuaW50ZWdyYXRpb25zOm1hbmFnZSIsImlhbS5nbG9iYWwucGFub3B0aWNhLms4c2NsdXN0ZXJzZXJ2aWNlLnJlbGVhc2VzOnJlYWQiXSwidGVuYW50IjoiYjQ5MjdkZWEtODdmZS00YTNiLTk1ZTktNGU1MjJlNTk0NGFjIn0.u-u6K87j5tBc60xV1LRNRwB2rD2QDxOULCrPXKF8rsosVayJkvctkEmnGKNfMdtnheG2bJFZIE2iIS-n343Iwg"
-
-  syncIntegrationJob:
-    image:
-      # -- Overrides the job image registry
-      registry: "registry.outshift.com"
+panoptica-kubernetes-integration:
+  kubernetes-integration-deployment-controller:
     api:
-      # -- [Required] Panoptica SaaS URL.
-      url: "k8s-integration.staging.panoptica.app"
+      url: "deploymentmanager.staging.panoptica.app"
 
-# Panoptica controller values
-k8sec-controller:
-  ## https://github.com/cisco-eti/agent/blob/dc9b90a17e078d3d814b31c5151021dc6cbedbcc/charts/panoptica2/values.yaml#L26
-  controller:
-    image:
-      # -- Overrides the controller image registry
-      repository: "panoptica/kspm/k8s_agent"
+    secret:
+      token: eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL2F1dGgua2lzLnBhbm9wdGljYS5pbyIsInN1YiI6ImFkYzo2ODM3Y2U2NS03YjYyLTQwNTUtOTM3MC1kZWY4ODlkODlmNWEiLCJhdWQiOlsiL2ludGVncmF0aW9ucy82ODM3Y2U2NS03YjYyLTQwNTUtOTM3MC1kZWY4ODlkODlmNWEiLCIvcmVsZWFzZXMiXSwic2NwIjpbImlhbS5nbG9iYWwucGFub3B0aWNhLms4c2NsdXN0ZXJzZXJ2aWNlLmludGVncmF0aW9ucy5kZXBsb3ltZW50Om1hbmFnZSIsImlhbS5nbG9iYWwucGFub3B0aWNhLms4c2NsdXN0ZXJzZXJ2aWNlLmludGVncmF0aW9uczpyZWFkIiwiaWFtLmdsb2JhbC5wYW5vcHRpY2EuazhzY2x1c3RlcnNlcnZpY2UuaW50ZWdyYXRpb25zOm1hbmFnZSIsImlhbS5nbG9iYWwucGFub3B0aWNhLms4c2NsdXN0ZXJzZXJ2aWNlLnJlbGVhc2VzOnJlYWQiXSwidGVuYW50IjoiYjQ5MjdkZWEtODdmZS00YTNiLTk1ZTktNGU1MjJlNTk0NGFjIn0.pBz6X4zavkkRsMR7RWB8kKCSvPHv--JH6lfNebtfKBe6xiWggy7eDkw_KAM-qMM-l_A4u_JWCwaaGfK7IpHxNw
 
-  ## https://github.com/cisco-eti/agent/blob/dc9b90a17e078d3d814b31c5151021dc6cbedbcc/charts/panoptica2/values.yaml#L103
-  k8sCISBenchmark:
-    image:
-      # -- Overrides the k8s-cis-benchmark image registry
-      repository: "panoptica/kspm/k8s-cis-benchmark"
-
-  ## https://github.com/cisco-eti/agent/blob/dc9b90a17e078d3d814b31c5151021dc6cbedbcc/charts/panoptica2/values.yaml#L114
-  imageAnalysis:
-    sbom:
-      image:
-        # -- Overrides the image-analyzer image registry
-        repository: "panoptica/kspm/image-analyzer"
-    cisDockerBenchmark:
-      image:
-        # -- Overrides the cis-docker-benchmark image registry
-        repository: "panoptica/kspm/cis-docker-benchmark"
-
-  ## https://github.com/cisco-eti/agent/blob/dc9b90a17e078d3d814b31c5151021dc6cbedbcc/charts/panoptica2/values.yaml#L193
-  busybox:
-    image:
-      # -- Overrides the busybox image registry
-      repository: "panoptica/kspm/curlimages/curl"
-
-
-# apisec controllers values
-# https://github.com/cisco-eti/panoptica-apisec/blob/master/deployment/apisec-controllers/values.yaml
-apisec-controllers:
-  apisec-controller:
-    image:
-      # -- Overrides the controller image registry
-      repository: panoptica/apisec/apisec-controller/controller
-
-    ## https://github.com/cisco-eti/panoptica-apisec/blob/master/apisec-controller/deployment/apisec-controller/values.yaml
-    # replicaCount: 1
-    # image: {}
-    # imagePullSecrets: []
-    # nameOverride: ""
-    # fullnameOverride: "panoptica-apisec-controller"
-    # serviceAccount: {}
-    # podAnnotations: {}
-    # podSecurityContext: {}
-    # securityContext: {}
-    # service: {}
-    # ingress: {}
-    # resources: {}
-    # autoscaling: {}
-    # nodeSelector: {}
-    # tolerations: []
-    # affinity: {}
-    # environment: {}
-    # metrics: {}
-
-  ## https://github.com/cisco-eti/panoptica-apisec/blob/master/fuzzer-controller/deployment/fuzzer-controller/values.yaml
-  # fuzzer controller values
-  fuzzer-controller:
-    image:
-      # -- Overrides the controller image registry
-      repository: panoptica/apisec/fuzzer-controller/controller
-
-    ## https://github.com/cisco-eti/panoptica-apisec/blob/master/fuzzer-controller/deployment/fuzzer-controller/values.yaml
-    # replicaCount: 1
-    # fuzzerController: {}
-    # image: {}
-    # imagePullSecrets: []
-    # nameOverride: ""
-    # fullnameOverride: "panoptica-fuzzer-controller"
-    # serviceAccount:{}
-    # podAnnotations: {}
-    # podSecurityContext: {}
-    # securityContext: {}
-    # service: {}
-    # autoscaling: {}
-    # nodeSelector: {}
-    # tolerations: []
-    # affinity: {}
-
-    ## Runtime Fuzzing Values
-    # APISecRuntimeFuzzing: {}
-
-
-# dragonfly-data-collector component values
-# @ignored
-cdr-controller: {}
-  ## https://github.com/cisco-eti/dragonfly-helm-charts/blob/3392fc8e4e5d5af28bb56aa21f0d4626cc8e9dd1/charts/dragonfly-data-collector/values.yaml#L1
-  # imageCredentials: {}
-
-  ## https://github.com/cisco-eti/dragonfly-helm-charts/blob/3392fc8e4e5d5af28bb56aa21f0d4626cc8e9dd1/charts/dragonfly-data-collector/values.yaml#L20C1-L20C1
-  # step-certificates: {}
-
-  ## https://github.com/cisco-eti/dragonfly-helm-charts/blob/3392fc8e4e5d5af28bb56aa21f0d4626cc8e9dd1/charts/dragonfly-data-collector/values.yaml#L38
-  # nameOverride: ""
-
-  ## https://github.com/cisco-eti/dragonfly-helm-charts/blob/3392fc8e4e5d5af28bb56aa21f0d4626cc8e9dd1/charts/dragonfly-data-collector/values.yaml#L40
-  # fullnameOverride: "dragonfly-data-collector"
-
-  ## https://github.com/cisco-eti/dragonfly-helm-charts/blob/3392fc8e4e5d5af28bb56aa21f0d4626cc8e9dd1/charts/dragonfly-data-collector/values.yaml#L48
-  # networkPolicy: {}
-
-  ## https://github.com/cisco-eti/dragonfly-helm-charts/blob/3392fc8e4e5d5af28bb56aa21f0d4626cc8e9dd1/charts/dragonfly-data-collector/values.yaml#L148
-  # wheel-agent: {}
-
-  ## https://github.com/cisco-eti/dragonfly-helm-charts/blob/3392fc8e4e5d5af28bb56aa21f0d4626cc8e9dd1/charts/dragonfly-data-collector/values.yaml#L170
-  # falco: {}
-
-  ## https://github.com/cisco-eti/dragonfly-helm-charts/blob/3392fc8e4e5d5af28bb56aa21f0d4626cc8e9dd1/charts/dragonfly-data-collector/values.yaml#L448
-  # fluent-bit: {}
-
-  ## https://github.com/cisco-eti/dragonfly-helm-charts/blob/3392fc8e4e5d5af28bb56aa21f0d4626cc8e9dd1/charts/dragonfly-data-collector/values.yaml#L585C1-L585C23
-  # fluent-bit-aggregator: {}
-
-  ## https://github.com/cisco-eti/dragonfly-helm-charts/blob/3392fc8e4e5d5af28bb56aa21f0d4626cc8e9dd1/charts/dragonfly-data-collector/values.yaml#L1028
-  # trivy-operator: {}
-
-  ## https://github.com/cisco-eti/dragonfly-helm-charts/blob/3392fc8e4e5d5af28bb56aa21f0d4626cc8e9dd1/charts/dragonfly-data-collector/values.yaml#L1040C1-L1040C28
-  # opentelemetry-collector: {}
-
-  ## https://github.com/cisco-eti/dragonfly-helm-charts/blob/3392fc8e4e5d5af28bb56aa21f0d4626cc8e9dd1/charts/dragonfly-data-collector/values.yaml#L1045C1-L1045C20
-  # sysflowagent-light: {}
-
-  ## https://github.com/cisco-eti/dragonfly-helm-charts/blob/3392fc8e4e5d5af28bb56aa21f0d4626cc8e9dd1/charts/dragonfly-data-collector/values.yaml#L1079C1-L1079C21
-  # sysflowagent-medium: {}
-
-  ## https://github.com/cisco-eti/dragonfly-helm-charts/blob/3392fc8e4e5d5af28bb56aa21f0d4626cc8e9dd1/charts/dragonfly-data-collector/values.yaml#L1104C1-L1104C20
-# sysflowagent-harsh: {}
+    syncIntegrationJob:
+      api:
+        url: "k8s-integration.staging.panoptica.app"
+  k8sec-controller:
+    controller:
+      secret:
+        sharedSecret: vfL6xRfNwtGMQ3q/DjgE0ouUwdGAAiBkDpjqoR05q74=
+      agentID: b8b72206-2966-4430-9205-a242e75230ff
