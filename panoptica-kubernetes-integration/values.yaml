@@ -10,6 +10,9 @@ global:
     onDemandUpgrade:
       enabled: false
   mgmtHostname: "lightspin.demo.panoptica.app"
+  deploymentHooks:
+    # When enabled, deployment hooks will be used to report deployment status
+    enabled: true
 
 panoptica-kubernetes-integration:
   kubernetes-integration-deployment-controller:
