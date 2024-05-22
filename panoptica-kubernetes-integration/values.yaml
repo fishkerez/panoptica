@@ -1,6 +1,6 @@
 global:
   panopticaIntegration:
-    id: c28a4cc6-9945-446b-9fb7-7352bd1fc82f
+    id: 7c0d28ff-9e69-430b-9be9-741c60ec1d95
     kspm:
       enabled: true
     apiSecurity:
@@ -15,7 +15,7 @@ panoptica-kubernetes-integration:
       url: "deploymentmanager.staging.panoptica.app"
 
     secret:
-      token: eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL2F1dGgua2lzLnBhbm9wdGljYS5pbyIsInN1YiI6ImFkYzpjMjhhNGNjNi05OTQ1LTQ0NmItOWZiNy03MzUyYmQxZmM4MmYiLCJhdWQiOlsiL2ludGVncmF0aW9ucy9jMjhhNGNjNi05OTQ1LTQ0NmItOWZiNy03MzUyYmQxZmM4MmYiLCIvcmVsZWFzZXMiXSwic2NwIjpbImlhbS5nbG9iYWwucGFub3B0aWNhLms4c2NsdXN0ZXJzZXJ2aWNlLmludGVncmF0aW9ucy5kZXBsb3ltZW50Om1hbmFnZSIsImlhbS5nbG9iYWwucGFub3B0aWNhLms4c2NsdXN0ZXJzZXJ2aWNlLmludGVncmF0aW9uczpyZWFkIiwiaWFtLmdsb2JhbC5wYW5vcHRpY2EuazhzY2x1c3RlcnNlcnZpY2UuaW50ZWdyYXRpb25zOm1hbmFnZSIsImlhbS5nbG9iYWwucGFub3B0aWNhLms4c2NsdXN0ZXJzZXJ2aWNlLnJlbGVhc2VzOnJlYWQiXSwidGVuYW50IjoiYjQ5MjdkZWEtODdmZS00YTNiLTk1ZTktNGU1MjJlNTk0NGFjIn0.N20EN2fza266_QenIV-wegNfOcPUHIdaM-JJJDt41IuTezlNg3ReLzj5_Zbr3SCKXDNJTzhkPGqjY9VPtC6xEQ
+      token: eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL2F1dGgua2lzLnBhbm9wdGljYS5pbyIsInN1YiI6ImFkYzo3YzBkMjhmZi05ZTY5LTQzMGItOWJlOS03NDFjNjBlYzFkOTUiLCJhdWQiOlsiL2ludGVncmF0aW9ucy83YzBkMjhmZi05ZTY5LTQzMGItOWJlOS03NDFjNjBlYzFkOTUiLCIvcmVsZWFzZXMiXSwic2NwIjpbImlhbS5nbG9iYWwucGFub3B0aWNhLms4c2NsdXN0ZXJzZXJ2aWNlLmludGVncmF0aW9ucy5kZXBsb3ltZW50Om1hbmFnZSIsImlhbS5nbG9iYWwucGFub3B0aWNhLms4c2NsdXN0ZXJzZXJ2aWNlLmludGVncmF0aW9uczpyZWFkIiwiaWFtLmdsb2JhbC5wYW5vcHRpY2EuazhzY2x1c3RlcnNlcnZpY2UuaW50ZWdyYXRpb25zOm1hbmFnZSIsImlhbS5nbG9iYWwucGFub3B0aWNhLms4c2NsdXN0ZXJzZXJ2aWNlLnJlbGVhc2VzOnJlYWQiXSwidGVuYW50IjoiYjQ5MjdkZWEtODdmZS00YTNiLTk1ZTktNGU1MjJlNTk0NGFjIn0.k_phL5dTzKIl7oxMCFvSl8wfZ03UIE8_woUXjyKCKwIFnGhQVCyA0CWR36DuDJ2IKJp7e1dBFbHukn4PBb-Igw
 
     syncIntegrationJob:
       api:
@@ -23,5 +23,5 @@ panoptica-kubernetes-integration:
   k8sec-controller:
     controller:
       secret:
-        sharedSecret: Ko75JytWb8RUHjxl/Bl25GJOm+UBDcRaVxsNGbVWx5Q=
-      agentID: 08c00fc2-b2f8-49a7-b7c6-372ebc23fd74
+        sharedSecret: 1UwsPUT0mWwjsQrYFbf6rbmn2fa+o0x92xfU4ALvr4o=
+      agentID: 482b06a1-f765-4b8f-8be3-17118a610d7b
