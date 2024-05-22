@@ -11,15 +11,16 @@ global:
       enabled: false
   mgmtHostname: "lightspin.demo.panoptica.app"
 
-  kubernetes-integration-deployment-controller:
-    api:
-      deploymentManagerUrl: "deploymentmanager.dev.panoptica.app"
-      integrationUrl: "k8s-integration.dev.panoptica.app"
+  panoptica-kubernetes-integration:
+    kubernetes-integration-deployment-controller:
+      api:
+        deploymentManagerUrl: "deploymentmanager.dev.panoptica.app"
+        integrationUrl: "k8s-integration.dev.panoptica.app"
 
-    secret:
-      token: eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL2F1dGgua2lzLnBhbm9wdGljYS5pbyIsInN1YiI6ImFkYzpjOWJhNGI5Zi0yZTJiLTRjYmQtODViZi1jMmQ2YmUxYmU0OWQiLCJhdWQiOlsiL2ludGVncmF0aW9ucy9jOWJhNGI5Zi0yZTJiLTRjYmQtODViZi1jMmQ2YmUxYmU0OWQiLCIvcmVsZWFzZXMiXSwic2NwIjpbImlhbS5nbG9iYWwucGFub3B0aWNhLms4c2NsdXN0ZXJzZXJ2aWNlLmludGVncmF0aW9ucy5kZXBsb3ltZW50Om1hbmFnZSIsImlhbS5nbG9iYWwucGFub3B0aWNhLms4c2NsdXN0ZXJzZXJ2aWNlLmludGVncmF0aW9uczpyZWFkIiwiaWFtLmdsb2JhbC5wYW5vcHRpY2EuazhzY2x1c3RlcnNlcnZpY2UuaW50ZWdyYXRpb25zOm1hbmFnZSIsImlhbS5nbG9iYWwucGFub3B0aWNhLms4c2NsdXN0ZXJzZXJ2aWNlLnJlbGVhc2VzOnJlYWQiLCJpYW0uZ2xvYmFsLnBhbm9wdGljYS5rOHNjbHVzdGVyc2VydmljZS5pbnRlZ3JhdGlvbnMuaGVsbTpyZWFkIl0sInRlbmFudCI6ImI0OTI3ZGVhLTg3ZmUtNGEzYi05NWU5LTRlNTIyZTU5NDRhYyJ9.4mua3WW_MRAEKcM4urxgd9z_VMljYFti99Fudikk5nBsqjt-aHLHT9Ybzv8Q08gL_jcGsdEBWFuyGDnFn-8E3w
-  k8sec-controller:
-    controller:
       secret:
-        sharedSecret: cDroC0yYKySK6dpu1oKQvKHR781to7l8fD8U7LSNsX4=
-      agentID: 1814d513-41b5-41f8-ba91-a0060d7b1139
+        token: eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL2F1dGgua2lzLnBhbm9wdGljYS5pbyIsInN1YiI6ImFkYzpjOWJhNGI5Zi0yZTJiLTRjYmQtODViZi1jMmQ2YmUxYmU0OWQiLCJhdWQiOlsiL2ludGVncmF0aW9ucy9jOWJhNGI5Zi0yZTJiLTRjYmQtODViZi1jMmQ2YmUxYmU0OWQiLCIvcmVsZWFzZXMiXSwic2NwIjpbImlhbS5nbG9iYWwucGFub3B0aWNhLms4c2NsdXN0ZXJzZXJ2aWNlLmludGVncmF0aW9ucy5kZXBsb3ltZW50Om1hbmFnZSIsImlhbS5nbG9iYWwucGFub3B0aWNhLms4c2NsdXN0ZXJzZXJ2aWNlLmludGVncmF0aW9uczpyZWFkIiwiaWFtLmdsb2JhbC5wYW5vcHRpY2EuazhzY2x1c3RlcnNlcnZpY2UuaW50ZWdyYXRpb25zOm1hbmFnZSIsImlhbS5nbG9iYWwucGFub3B0aWNhLms4c2NsdXN0ZXJzZXJ2aWNlLnJlbGVhc2VzOnJlYWQiLCJpYW0uZ2xvYmFsLnBhbm9wdGljYS5rOHNjbHVzdGVyc2VydmljZS5pbnRlZ3JhdGlvbnMuaGVsbTpyZWFkIl0sInRlbmFudCI6ImI0OTI3ZGVhLTg3ZmUtNGEzYi05NWU5LTRlNTIyZTU5NDRhYyJ9.4mua3WW_MRAEKcM4urxgd9z_VMljYFti99Fudikk5nBsqjt-aHLHT9Ybzv8Q08gL_jcGsdEBWFuyGDnFn-8E3w
+    k8sec-controller:
+      controller:
+        secret:
+          sharedSecret: cDroC0yYKySK6dpu1oKQvKHR781to7l8fD8U7LSNsX4=
+        agentID: 1814d513-41b5-41f8-ba91-a0060d7b1139
