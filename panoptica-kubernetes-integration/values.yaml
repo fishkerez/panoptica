@@ -1,29 +1,27 @@
 global:
   panopticaIntegration:
-    id: 5ebae1e1-254b-494d-8b1d-82c4bd01783c
+    id: c28a4cc6-9945-446b-9fb7-7352bd1fc82f
     kspm:
       enabled: true
     apiSecurity:
       enabled: false
     cdr:
       enabled: false
-    onDemandUpgrade:
-      enabled: false
-  mgmtHostname: "lightspin.demo.panoptica.app"
-  deploymentHooks:
-    # When enabled, deployment hooks will be used to report deployment status
-    enabled: true
+  mgmtHostname: "production.demo.panoptica.app"
 
 panoptica-kubernetes-integration:
   kubernetes-integration-deployment-controller:
     api:
-      deploymentManagerUrl: "deploymentmanager.dev.panoptica.app"
-      integrationUrl: "k8s-integration.dev.panoptica.app"
+      url: "deploymentmanager.staging.panoptica.app"
 
     secret:
-      token: eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL2F1dGgua2lzLnBhbm9wdGljYS5pbyIsInN1YiI6ImFkYzo1ZWJhZTFlMS0yNTRiLTQ5NGQtOGIxZC04MmM0YmQwMTc4M2MiLCJhdWQiOlsiL2ludGVncmF0aW9ucy81ZWJhZTFlMS0yNTRiLTQ5NGQtOGIxZC04MmM0YmQwMTc4M2MiLCIvcmVsZWFzZXMiXSwic2NwIjpbImlhbS5nbG9iYWwucGFub3B0aWNhLms4c2NsdXN0ZXJzZXJ2aWNlLmludGVncmF0aW9ucy5kZXBsb3ltZW50Om1hbmFnZSIsImlhbS5nbG9iYWwucGFub3B0aWNhLms4c2NsdXN0ZXJzZXJ2aWNlLmludGVncmF0aW9uczpyZWFkIiwiaWFtLmdsb2JhbC5wYW5vcHRpY2EuazhzY2x1c3RlcnNlcnZpY2UuaW50ZWdyYXRpb25zOm1hbmFnZSIsImlhbS5nbG9iYWwucGFub3B0aWNhLms4c2NsdXN0ZXJzZXJ2aWNlLnJlbGVhc2VzOnJlYWQiLCJpYW0uZ2xvYmFsLnBhbm9wdGljYS5rOHNjbHVzdGVyc2VydmljZS5pbnRlZ3JhdGlvbnMuaGVsbTpyZWFkIl0sInRlbmFudCI6ImI0OTI3ZGVhLTg3ZmUtNGEzYi05NWU5LTRlNTIyZTU5NDRhYyJ9.J1YxDiEDNCXarSwgCECQf1wtRlGdeWlSejbXag1Yt0EBO0ue1imP-Uu8uQ8La8bWNtQwW9WWSdxzMrKiK5b-aQ
+      token: eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL2F1dGgua2lzLnBhbm9wdGljYS5pbyIsInN1YiI6ImFkYzpjMjhhNGNjNi05OTQ1LTQ0NmItOWZiNy03MzUyYmQxZmM4MmYiLCJhdWQiOlsiL2ludGVncmF0aW9ucy9jMjhhNGNjNi05OTQ1LTQ0NmItOWZiNy03MzUyYmQxZmM4MmYiLCIvcmVsZWFzZXMiXSwic2NwIjpbImlhbS5nbG9iYWwucGFub3B0aWNhLms4c2NsdXN0ZXJzZXJ2aWNlLmludGVncmF0aW9ucy5kZXBsb3ltZW50Om1hbmFnZSIsImlhbS5nbG9iYWwucGFub3B0aWNhLms4c2NsdXN0ZXJzZXJ2aWNlLmludGVncmF0aW9uczpyZWFkIiwiaWFtLmdsb2JhbC5wYW5vcHRpY2EuazhzY2x1c3RlcnNlcnZpY2UuaW50ZWdyYXRpb25zOm1hbmFnZSIsImlhbS5nbG9iYWwucGFub3B0aWNhLms4c2NsdXN0ZXJzZXJ2aWNlLnJlbGVhc2VzOnJlYWQiXSwidGVuYW50IjoiYjQ5MjdkZWEtODdmZS00YTNiLTk1ZTktNGU1MjJlNTk0NGFjIn0.N20EN2fza266_QenIV-wegNfOcPUHIdaM-JJJDt41IuTezlNg3ReLzj5_Zbr3SCKXDNJTzhkPGqjY9VPtC6xEQ
+
+    syncIntegrationJob:
+      api:
+        url: "k8s-integration.staging.panoptica.app"
   k8sec-controller:
     controller:
       secret:
-        sharedSecret: ykOxeePNE3uDJp3UeBAnA9oC0FmDl8tFbrSJXMI5fGI=
-      agentID: c6d4fb08-2274-4ffe-8cc9-c1d12ded23db
+        sharedSecret: Ko75JytWb8RUHjxl/Bl25GJOm+UBDcRaVxsNGbVWx5Q=
+      agentID: 08c00fc2-b2f8-49a7-b7c6-372ebc23fd74
